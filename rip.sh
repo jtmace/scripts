@@ -6,7 +6,7 @@ FRAMES_PER_SEC="23.976"		 # default NTSC DVD framerate
 VIDEO_BITRATE="-960000" 	 # -1000000 should produce a movie of about 1GB in size.
 AUDIO_BITRATE=128		       
 VOLUME=8	                 # 1-10
-ASPECT="16:9"		         # Set this according to the movie, most new will be 16x9, most old will be 3:4
+ASPECT="16:9"		         # Usually 16:9 or 3:4
 CROP="720:480:0:0"        	 # Figure this by running:
 				 #    `mplayer -ss 60 -vf cropdetect dvd://1`
 
