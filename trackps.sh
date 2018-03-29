@@ -19,9 +19,9 @@ done
 # ------------------
 # !/bin/bash
 # IFS=$'\n'
-# o=$(ps -eo start,user,command)
+# o=$(ps -eo lstart,user,command)
 # while true; do
-#   n=$(ps -eo start,user,command)
+#   n=$(ps -eo lstart,user,command)
 #   diff <(echo "$o") <(echo "$n") | grep [\<\>] |egrep -v "ps -eo|sleep"
 #   sleep 1
 #   o=$n
