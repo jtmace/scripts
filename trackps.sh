@@ -5,11 +5,11 @@ function cleanup {
 }
 
 IFS=$'\n'
-o=$(ps -eo user,command)
+o=$(ps -eo lstart,user,command)
 trap cleanup SIGINT SIGQUIT SIGHUP
 
 while true; do
-  n=$(ps -eo user,command)
+  n=$(ps -eo lstart,user,command)
   diff <(echo "$o") <(echo "$n") |grep [\<\>] |egrep -v "ps -eo|sleep" |sed -e "s/^>/$(printf "\033[32m")/; s/^</$(printf "\033[31m")/"
   sleep 1
   o=$n
