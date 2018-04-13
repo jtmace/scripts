@@ -16,7 +16,7 @@ body {
 <body>
 <?php 
  
-/* `sqlite3 sqlite.db`
+/* --sqlite3 sqlite.db
    DROP TABLE services;
    CREATE TABLE services(
    ID	  	INT PRIMARY KEY 	NOT NULL,
@@ -28,7 +28,7 @@ body {
      (1,'MotionEye','http://10.0.0.200:8765');
    INSERT INTO services (ID,NAME,LINK) VALUES
      (2,'Webmin','https://10.0.0.200:10000');
-   ^d
+   -- ^d
 */
 
 #ini_set('display_errors', 1);
