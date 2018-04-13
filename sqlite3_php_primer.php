@@ -44,7 +44,7 @@ $db = new MyDB();
 if(!$db) {
    echo $db->lastErrorMsg();
 } else {
-   $sql = "SELECT * FROM SERVICES";
+   $sql = "SELECT * FROM services";
    $ret = $db->query($sql);
       while($row = $ret->fetchArray(SQLITE3_ASSOC) ) {
       echo "<p style=\"text-align:center\"><a href='". $row['LINK'] ."'>". $row['NAME'] ."</a><br>\n";
