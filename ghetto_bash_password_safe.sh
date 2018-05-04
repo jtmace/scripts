@@ -27,7 +27,7 @@ then
             e)  if [ ! -f ./respect.txt ]; then
                   echo "respect.txt not found!"
                 else
-			            echo "Encrypting respect.txt"
+		  echo "Encrypting respect.txt"
                   openssl enc -aes-256-cbc -salt -in respect.txt -out respect.bin
                 fi ;;
 
