@@ -52,3 +52,5 @@ else
   usage
   exit
 fi
+
+# At least it's encrypted :P
