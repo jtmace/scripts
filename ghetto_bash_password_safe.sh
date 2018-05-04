@@ -6,7 +6,7 @@
 #    Win10 Sticky Notes or # even worse, real sticky notes....
 
 function usage {
-  echo "Usage: $0 [-eds]"
+  echo "Usage: $0 [-veds]"
   echo "  -v    View respect.bin    "
   echo "  -e    Encrypt respect.txt "
   echo "  -d    Decrypt respect.bin "
