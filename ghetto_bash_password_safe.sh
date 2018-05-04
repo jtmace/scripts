@@ -2,8 +2,8 @@
 #
 # Can't install a password manager on a locked down windows box?
 #   cygwin-setup --no-admin  
-#   cobbled together in a few minutes to at least not store passwords on
-#    Win10 Sticky Notes or # even worse, real sticky notes....
+#   cobbled together to at least not store passwords on Win10
+#    Sticky Notes or even worse, real sticky notes ...
 
 function usage {
   echo "Usage: $0 [-veds]"
