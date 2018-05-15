@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# r = requests.post("http://www.find-ip-address.org/ip-country/", data={'country': 'RU', 'output': 'CIDR', 'prefix': ''})
-# -----------------------------------------------------------------------
-# Create ASA list of Russian IP ranges to throw in the DROP object group. 
+#
+# Create ASA list of Russian IP ranges to throw in the DROP object group.
+# =======================================================================
 #
 #  "if you ever code something that 'feels like a hack but
 #   it works' just remember that a CPU is literally a rock
@@ -20,7 +20,7 @@ echo $R | sed -e 's/\s/\n/g' | sed 1,10d | while IFS="/" read IP SN; do
 done
 
 # Or using Python:
-#==============================================
+#========================================================================
 # #!/usr/bin/env python
 # import requests
 # 
