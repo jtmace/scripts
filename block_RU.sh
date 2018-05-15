@@ -14,7 +14,7 @@
 #    network-object 5.3.0.0 255.255.0.0
 
 R=`curl -d "country=RU&output=CIDR" -X POST http://www.find-ip-address.org/ip-country/`
-echo $R | sed -e 's/\s/\n/g' | sed 1,10d | while IFS="/" read IP SN; do 
+echo $R | sed 's/\s/\n/g' | sed 1,10d | while IFS="/" read IP SN; do 
         M=$(( 0xffffffff ^ ((1 << (32-SN)) -1) ))
         echo "  network-object $IP $(( (M>>24) & 0xff )).$(( (M>>16) & 0xff )).$(( (M>>8) & 0xff )).$(( M & 0xff ))"
 done
