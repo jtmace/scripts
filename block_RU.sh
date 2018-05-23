@@ -6,12 +6,6 @@
 #  "if you ever code something that 'feels like a hack but
 #   it works' just remember that a CPU is literally a rock
 #   that we tricked into thinking" -@daisyowl
-#
-# Example output:  
-#    network-object 2.92.0.0 255.252.0.0
-#    network-object 5.1.48.0 255.255.248.0
-#    network-object 5.2.32.0 255.255.224.0
-#    network-object 5.3.0.0 255.255.0.0
 
 R=`curl -d "country=RU&output=CIDR" -X POST http://www.find-ip-address.org/ip-country/`
 echo $R | sed 's/\s/\n/g' | sed 1,10d | while IFS="/" read IP SN; do 
