@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Simple, ugly scipt to tune the HDHomerun to a channel on Linux.
 # Scan channels with:
-#   hdhomerun_config FFFFFFFF scan /tuner0 | grep -B 2 PROGRAM
+#   hdhomerun_config FFFFFFFF scan /tuner0 | grep -B 2 PROGRAM 
+# Still waiting on the price of ATSC tuners to come down!?! 
 
 tune_in () { 
     # sleep here because you have to give the tuner a second to 
