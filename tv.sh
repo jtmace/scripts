@@ -9,7 +9,7 @@ trap "killall vlc; rm -f $tempfile;" 0 1 2 5 15
 
 I="$(ip addr | grep 'state UP' -A2 | tail -n1 | awk -F'[/ ]+' '{print $3}')"
 
-# sleep here just to not mess up the dialog output
+# sleep here so vlc doesnt trample dialog's output
 vlc udp://@:1234 &> /dev/null & sleep 1 
 
 tune_in () { 
