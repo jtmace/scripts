@@ -23,7 +23,7 @@ L="2.1"
 
 while true; do
 	dialog --clear --default-item $L --title "HDHomerunner" \
-        --menu "Choose Channel:" 20 51 27			\
+        --menu "Choose Channel:" 90 90 50			\
         "2.1" "WKRN-D"						\
         "2.2" "MeTV"						\
         "2.3" "JUSTICE"						\
