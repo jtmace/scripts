@@ -1,13 +1,13 @@
 #!/bin/sh
 # Simple, ugly scipt to tune the HDHomerun to a channel on Linux.
-# Scan channels with:
+# Your channels will vary. Scan channels with:
 #   hdhomerun_config FFFFFFFF scan /tuner0 | grep -B 2 PROGRAM
 
 $DIALOG=${DIALOG=dialog}
 tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/test$$
 trap "rm -f $tempfile" 0 1 2 5 15
 
-IP="$(ip addr | grep 'state UP' -A2 | tail -n1 | awk -F'[/ ]+' '{print $3}')"
+ip="$(ip addr | grep 'state UP' -A2 | tail -n1 | awk -F'[/ ]+' '{print $3}')"
 
 vlc udp://@:1234 &> /dev/null & sleep 1 
 
@@ -16,25 +16,25 @@ tune_in () {
     hdhomerun_config FFFFFFFF get /tuner0/status
     hdhomerun_config FFFFFFFF get /tuner0/streaminfo
     hdhomerun_config FFFFFFFF set /tuner0/program $2
-    hdhomerun_config FFFFFFFF set /tuner0/target $IP:1234
+    hdhomerun_config FFFFFFFF set /tuner0/target $ip:1234
 } 
 
 while true; do
 	$DIALOG --clear --title "HDHomerunner" \
         --menu "Choose Channel:" 20 51 27      \
-        "2.1" "WKRN-D"                         \
-        "2.2" "MeTV"                           \
-        "2.3" "JUSTICE"                        \
-        "2.4" "GRIT"                           \
-        "4.1" "WSMV-H"                         \
-        "4.2" "Escape"                         \
-        "4.3" "Cozi"                           \
-        "5.1" "WTVF"                           \
-        "5.2" "NC5+"                           \
-        "5.3" "LAFF"                           \
-        "8.1" "NPT-1"                          \
-        "8.2" "NPT-2"                          \
-        "8.3" "NPT-3"                          \
+        "2.1"  "WKRN-D"                        \
+        "2.2"  "MeTV"                          \
+        "2.3"  "JUSTICE"                       \
+        "2.4"  "GRIT"                          \
+        "4.1"  "WSMV-H"                        \
+        "4.2"  "Escape"                        \
+        "4.3"  "Cozi"                          \
+        "5.1"  "WTVF"                          \
+        "5.2"  "NC5+"                          \
+        "5.3"  "LAFF"                          \
+        "8.1"  "NPT-1"                         \
+        "8.2"  "NPT-2"                         \
+        "8.3"  "NPT-3"   L                      \
         "17.1" "WZTV"                          \
         "17.2" "TBD"                           \
         "17.3" "Ant. TV"                       \
