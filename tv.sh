@@ -21,6 +21,11 @@ tune_in () {
 
 L="2.1"
 
+# There is likely a better way to do this by using the HDhomerun
+# scan function to populate an array, but for the sake of just 
+# getting the script written, let's exercise these fingers and
+# just type it all out. Odds are we will probably never use this
+
 while true; do
 	dialog --clear --default-item $L --title "HDHomerunner" \
         --menu "Choose Channel:" 90 90 50			\
