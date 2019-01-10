@@ -9,9 +9,12 @@ trap "killall vlc; rm -f $tempfile;" 0 1 2 5 15
 
 I="$(ip addr | grep 'state UP' -A2 | tail -n1 | awk -F'[/ ]+' '{print $3}')"
 
+# sleep here just to not mess up the dialog output
 vlc udp://@:1234 &> /dev/null & sleep 1 
 
-tune_in () {
+tune_in () { 
+    # sleep here because you have to give the tuner a second to 
+    # read the status/streaminfo - hardware is kinda slow
     hdhomerun_config FFFFFFFF set /tuner0/channel auto:$1; sleep 1
     hdhomerun_config FFFFFFFF get /tuner0/status
     hdhomerun_config FFFFFFFF get /tuner0/streaminfo
