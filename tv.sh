@@ -14,7 +14,7 @@ vlc udp://@:1234 &> /dev/null & sleep 1
 
 tune_in () { 
     # sleep here because you have to give the tuner a second to 
-    # read the status/streaminfo - hardware is kinda slow
+    #  read the status/streaminfo - hardware is kinda slow
     hdhomerun_config FFFFFFFF set /tuner0/channel auto:$1; sleep 1
     hdhomerun_config FFFFFFFF get /tuner0/status
     hdhomerun_config FFFFFFFF get /tuner0/streaminfo
