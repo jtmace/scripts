@@ -3,15 +3,6 @@
 # Scan channels with:
 #   hdhomerun_config FFFFFFFF scan /tuner0 | grep -B 2 PROGRAM
 
-tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/test$$
-
-trap "killall vlc; rm -f $tempfile;" 0 1 2 5 15 
-
-I="$(ip addr | grep 'state UP' -A2 | tail -n1 | awk -F'[/ ]+' '{print $3}')"
-
-# sleep here so vlc doesnt trample dialog's output
-vlc udp://@:1234 &> /dev/null & sleep 1 
-
 tune_in () { 
     # sleep here because you have to give the tuner a second to 
     #  read the status/streaminfo - hardware is kinda slow
@@ -22,7 +13,15 @@ tune_in () {
     hdhomerun_config FFFFFFFF set /tuner0/target $I:1234
 }
 
+tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/test$$
+
+trap "killall vlc; rm -f $tempfile;" 0 1 2 5 15 
+
+I="$(ip addr | grep 'state UP' -A2 | tail -n1 | awk -F'[/ ]+' '{print $3}')"
 L="2.1"
+
+# sleep here so vlc doesnt trample dialog's output
+vlc udp://@:1234 &> /dev/null & sleep 1 
 
 # There is likely a better way to do this by using the HDhomerun
 # scan function to populate an array, but for the sake of just 
